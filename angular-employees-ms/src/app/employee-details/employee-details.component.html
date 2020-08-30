@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title>Car List</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let employee of employees | async">
+        <mat-list-item role="listitem">{{employee.firstName}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.lastName}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.emailId}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.phoneNumber}}</mat-list-item>
+
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/car-edit', employee.emailId]">Edit</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+</mat-card>
+<!--<div class="panel panel-primary">-->
+<!--  <div class="panel-heading">-->
+<!--    <h2>Employee List</h2>-->
+<!--  </div>-->
+<!--  <div class="panel-body">-->
+<!--    <table class="table table-striped">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>Firstname</th>-->
+<!--        <th>Lastname</th>-->
+<!--        <th>Emailid</th>-->
+<!--        <th>Phonenumber</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let employee of employees | async">-->
+<!--        <td>{{employee.firstName}}</td>-->
+<!--        <td>{{employee.lastName}}</td>-->
+<!--        <td>{{employee.emailId}}</td>-->
+<!--        <td>{{employee.phoneNumber}}</td>-->
+<!--        <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>-->
+<!--          <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>-->
+<!--          <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->

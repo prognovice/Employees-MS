@@ -1,0 +1,106 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <h2>Log In</h2>
+      <mat-error *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+        The username and password were not recognised
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="User Name" formControlName="username" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<!--<div class="example-container mat-elevation-z8">-->
+<!--  <div class="example-loading-shade"-->
+<!--       *ngIf="isLoadingResults">-->
+<!--    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>-->
+<!--  </div>-->
+<!--  <mat-card class="example-card">-->
+<!--    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">-->
+<!--      <mat-form-field class="example-full-width">-->
+<!--        <input matInput type="text" placeholder="User Name" formControlName="user"-->
+<!--               [errorStateMatcher]="matcher">-->
+<!--        <mat-error>-->
+<!--          <span *ngIf="!loginForm.get('user').valid && loginForm.get('user').touched">Please enter your user name</span>-->
+<!--        </mat-error>-->
+<!--      </mat-form-field>-->
+<!--      <mat-form-field class="example-full-width">-->
+<!--        <input matInput type="password" placeholder="Password" formControlName="password"-->
+<!--               [errorStateMatcher]="matcher">-->
+<!--        <mat-error>-->
+<!--          <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>-->
+<!--        </mat-error>-->
+<!--      </mat-form-field>-->
+<!--      <div class="button-row">-->
+<!--        <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary">Login</button>-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <div class="button-row">&ndash;&gt;-->
+<!--&lt;!&ndash;        <button type="button" mat-flat-button color="primary" (click)="register()">Register</button>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </form>-->
+<!--  </mat-card>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="limiter">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="container-login100">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="wrap-login100 p-t-85 p-b-20">&ndash;&gt;-->
+<!--&lt;!&ndash;      <form class="login100-form validate-form" #loginform="ngForm" (ngSubmit)="loginuser()">&ndash;&gt;-->
+<!--&lt;!&ndash;        <small class="text-danger">{{msg}}</small>&ndash;&gt;-->
+<!--&lt;!&ndash;					<span class="login100-form-title p-b-70">&ndash;&gt;-->
+<!--&lt;!&ndash;						Welcome&ndash;&gt;-->
+<!--&lt;!&ndash;					</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="login100-form-avatar">&ndash;&gt;-->
+<!--&lt;!&ndash;						<img src="assets/images/avatar-01.jpg" alt="AVATAR">&ndash;&gt;-->
+<!--&lt;!&ndash;					</span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">&ndash;&gt;-->
+<!--&lt;!&ndash;          <input class="input100" type="text" name="username" [(ngModel)]="user.userName" placeholder="Username">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <span class="focus-input100" data-placeholder="Username"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password" >&ndash;&gt;-->
+<!--&lt;!&ndash;          <input class="input100" type="password" name="pass" [(ngModel)]="user.userPass"  placeholder="Password">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <span class="focus-input100" data-placeholder="Password"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="container-login100-form-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;          <button class="login100-form-btn" >&ndash;&gt;-->
+<!--&lt;!&ndash;            Login&ndash;&gt;-->
+<!--&lt;!&ndash;          </button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;        <ul class="login-more p-t-190">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <li class="m-b-8">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;							<span class="txt1">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;								Forgot&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;							</span>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <a href="#" class="txt2">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Username / Password?&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </li>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;          <li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;							<span class="txt1">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;								Don’t have an account?&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;							</span>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <a href="#" class="txt2">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              Sign up&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </ul>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      </form>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->

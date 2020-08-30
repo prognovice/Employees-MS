@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-title>Car List</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let employee of employees | async">
+        <mat-list-item role="listitem">{{employee.firstName}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.lastName}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.emailId}}</mat-list-item>
+        <mat-list-item role="listitem">{{employee.phoneNumber}}</mat-list-item>
+
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/car-edit', employee.emailId]">Edit</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+</mat-card>
+<!--<div class="panel panel-default">-->
+<!--  <div class="panel-heading">-->
+<!--    <h1 style="text-align: center">Employees</h1><br>-->
+<!--    <div class="row" [hidden]="!deleteMessage">-->
+
+<!--      <div class="col-sm-4"></div>-->
+<!--      <div class="col-sm-4">-->
+<!--        <div class="alert alert-info alert-dismissible">-->
+<!--          <button type="button" class="close" data-dismiss="alert">&times;</button>-->
+<!--          <strong>Employee Data Deleted</strong>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-sm-4"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--  <div class="panel-body">-->
+<!--    <table  class="table table-hover table-striped"  >-->
+<!--      <thead class="thead-light">-->
+<!--      <tr>-->
+<!--        <th>Firstname</th>-->
+<!--        <th>Lastname</th>-->
+<!--        <th>Emailid</th>-->
+<!--        <th>Phonenumber</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let employee of employees | async" >-->
+<!--        <td>{{employee.firstName}}</td>-->
+<!--        <td>{{employee.lastName}}</td>-->
+<!--        <td>{{employee.emailId}}</td>-->
+<!--        <td>{{employee.phoneNumber}}</td>-->
+<!--        <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>-->
+<!--          <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>-->
+<!--          <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+<!--        </td>-->
+
+<!--      </tr>-->
+<!--      </tbody><br>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+
